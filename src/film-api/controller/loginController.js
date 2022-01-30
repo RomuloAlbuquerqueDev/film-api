@@ -13,7 +13,6 @@ controller.login = async (req, res) => {
 	console.log(loginPassword);
 
 	let result = await service.login(loginEmail, loginPassword);
-	console.log("aqui resultado do service.login:   "+result);
 	if (result === true) {
 		res.setHeader("Content-Type", "application/json");
 		res.send({
