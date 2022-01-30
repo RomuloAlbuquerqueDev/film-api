@@ -13,15 +13,15 @@
 =================
 <!--ts-->
    * [JavaScript](#JavaScript)
-      * [linguagem](#linguagem)
+      * [linguagem]
    * [Node.js](#Node.js)
-      * [Engine baseada em V8 - Backend JavaScript](#Engine baseada em V8 - Backend JavaScript)
+      * [Engine baseada em V8 - Backend JavaScript]
    * [Sequelize](#Sequelize)
-      * [Mapeamento Objeto Relacional](#Mapeamento Objeto Relacional)
+      * [Mapeamento Objeto Relacional]
    * [JWT](#JWT)
       * [Json Web Token - Autenticação e autorização de rotas]
    * [Postgres](#Postgres)
-      * [Banco de dados relacional](#Banco de dados relacional)
+      * [Banco de dados relacional]
 <!--te-->
 
 
