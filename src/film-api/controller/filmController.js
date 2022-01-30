@@ -5,11 +5,6 @@ const service = require('../service/filmService');
 
 const controller = {};
 
-const secretKey = "1010";
-const jwtMiddleware = require("express-jwt")({
-	secret: secretKey
-});
-
 controller.create = async (req, res) => {
 	let entity = req.body;
 	entity = await service.create(entity);
