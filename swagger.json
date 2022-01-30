@@ -1,0 +1,399 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "film-api",
+    "description": "Catalogação de filmes",
+    "termsOfService": "localhost:3000/terms",
+    "contact": {
+      "email": "romulo.albuquerque.dev@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "API de teste"
+    },
+    {
+      "url": "http://www.www.film-api.com.br",
+      "description": "API de produção"
+    }
+  ],
+  "paths": {
+    "/film/create": {
+      "post": {
+        "sumary": "Cadastrar novo filme",
+        "description": "Rota responsável por cadastrar um novo filme",
+        "tags": ["film"],
+        "security": [{"bearerAuth": []}],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/film"
+              },
+              "examples": {
+                "film": {
+                  "value": {
+                    "title": "Titanic",
+                    "director": "James Cameron"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/film"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/film/read": {
+      "get": {
+        "sumary": "Buscar filmes",
+        "description": "Rota responsável por retornar todos os filmes cadastrados  no banco de dados",
+        "tags": ["film"],
+        "security": [{"bearerAuth": []}],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/film"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/film/{id}": {
+      "get": {
+        "sumary": "getById - Pesquisar filme específico",
+        "description": "Rota responsável por retornar filme a partir do id cadastrados  no banco de dados",
+        "tags": ["film"],
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "número identificador do filme no banco de dados",
+            "required": "true"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/film"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/film/update/{id}": {
+      "put": {
+        "sumary": "Atualizar filme",
+        "description": "Rota responsável por atualizar a partir do id, um filme existente no banco de dados",
+        "tags": ["film"],
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "número identificador do filme no banco de dados",
+            "required": "true"
+          }
+        ],
+
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/film"
+              },
+              "examples": {
+                "film": {
+                  "value": {
+                    "title": "Matrix",
+                    "director": "..."
+                  }
+                }
+              }
+            }
+          }
+        },
+
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/film"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/film/delete/{id}": {
+      "delete": {
+        "sumary": "Deletar filme por id",
+        "description": "Rota responsável por retornar filme a partir do id cadastrados  no banco de dados",
+        "tags": ["film"],
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "número identificador do filme no banco de dados",
+            "required": "true"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/film"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/create": {
+      "post": {
+        "sumary": "Cadastrar novo usuário",
+        "description": "Rota responsável por cadastrar um novo usuário",
+        "tags": ["user"],
+        "security": [{"bearerAuth": []}],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user"
+              },
+              "examples": {
+                "user": {
+                  "value": {
+                    "name": "Romulo",
+                    "email": "romulo@email.com",
+                    "password": "123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/user"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/read": {
+      "get": {
+        "sumary": "Buscar usuários",
+        "description": "Rota responsável por retornar todos os usuários cadastrados  no banco de dados",
+        "tags": ["user"],
+        "security": [{"bearerAuth": []}],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/user"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "sumary": "Busca por id",
+        "description": "Rota responsável por retornar usuário a partir do id cadastrados  no banco de dados",
+        "tags": ["user"],
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "número identificador do usuário no banco de dados",
+            "required": "true"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/user"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/update/{id}": {
+      "put": {
+        "sumary": "Atualizar user",
+        "description": "Rota responsável por atualizar a partir do id, um usuário existente no banco de dados",
+        "tags": ["user"],
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "número identificador do usuário no banco de dados",
+            "required": "true"
+          }
+        ],
+
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user"
+              },
+              "examples": {
+                "user": {
+                  "value": {
+                    "name": "Romulo",
+                    "email": "romulo@email.com",
+                    "password": "123"
+                  }
+                }
+              }
+            }
+          }
+        },
+
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/user"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/delete/{id}": {
+      "delete": {
+        "sumary": "Cadastrar novo usuário",
+        "description": "Rota responsável por cadastrar um novo usuário",
+        "tags": ["user"],
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "número identificador do usuário no banco de dados",
+            "required": "true"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/user"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "components": {
+    "schemas": {
+      "film": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "director": {
+            "type": "string"
+          }
+        }
+      },
+      "user": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "e-mail": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http", 
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
