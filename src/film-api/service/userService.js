@@ -1,5 +1,9 @@
 const repository = require('../repository/userRepository');
 
+exports.create = function (create) {
+	return repository.create(create);
+};
+
 exports.read = function () {
 	const result = repository.read();
 	console.log(result)
@@ -8,10 +12,6 @@ exports.read = function () {
 
 exports.readById = function (id) {
 	return repository.readById(id);
-};
-
-exports.create = function (create) {
-	return repository.create(create);
 };
 
 exports.update = function (id, update) {
